@@ -1,172 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ETIQUETA DE VERIFICACIÓN DE GOOGLE -->
-  <meta name="google-site-verification" content="googleb351e01797a2db32" />
-
-  <!-- SEO PRINCIPAL PARA GOOGLE -->
-  <title>Calculadora Solar para Cuba | Calcula Vatios, Inversores y Plantas</title>
-  <meta name="description" content="Herramienta gratuita para calcular el consumo en vatios y horas de respaldo para tu hogar en Cuba. Elige la estación de energía, inversor o batería exacta sin gastar de más.">
-  <meta name="keywords" content="calculadora solar cuba, plantas electricas cuba, inversores cuba, ecoflow cuba, baterias lifepo4 cuba, apagones cuba energia, envios plantas cuba hialeah">
-  <meta name="author" content="SolarCuba Soporte">
-  <meta name="robots" content="index, follow">
-
-  <!-- VISTA PREVIA EN SOCIAL -->
-  <meta property="og:title" content="Calculadora & Asesoría Solar para Cuba">
-  <meta property="og:description" content="Calcula la potencia exacta que necesita la casa de tu familia en Cuba antes de comprar o enviar un inversor o planta.">
-  <meta property="og:type" content="website">
-
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Cuba | Asesoría Técnica Fotovoltaica</title>
+    <!-- Tailwind CSS para un diseño moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Librería para generar códigos QR limpios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        .solar-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #064e3b 100%);
+        }
+        .card-glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+<body class="solar-gradient text-slate-100 min-h-screen flex flex-col justify-between font-sans">
 
-  <!-- ENCABEZADO / NAVBAR -->
-  <header class="bg-blue-900 text-white p-4 shadow-lg sticky top-0 z-50">
-    <div class="max-w-4xl mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold flex items-center gap-2">
-        ☀️ SolarCuba <span class="text-xs bg-yellow-500 text-black px-2 py-0.5 rounded-full font-semibold">100% Gratis</span>
-      </h1>
-      <a href="#contacto" class="bg-yellow-500 hover:bg-yellow-400 text-blue-950 font-bold px-3 py-1.5 rounded-lg text-sm transition">
-        Asesoría QvaPay
-      </a>
-    </div>
-  </header>
-
-  <!-- BANNER PRINCIPAL -->
-  <section class="bg-gradient-to-b from-blue-900 to-blue-800 text-white py-10 px-4 text-center">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl sm:text-4xl font-extrabold mb-3">Calcula el Equipo Solar Exacto para Tu Familia en Cuba</h2>
-      <p class="text-blue-200 text-sm sm:text-base mb-6">Calcula el consumo en vatios, las horas de respaldo en apagones y conoce qué estación de energía o inversor comprar sin gastar de más.</p>
-    </div>
-  </section>
-
-  <!-- CALCULADORA DE CARGAS -->
-  <main class="max-w-3xl mx-auto p-4 -mt-6">
-    <div class="bg-white rounded-2xl shadow-xl p-5 sm:p-8 border border-gray-100">
-      <h3 class="text-xl font-bold text-gray-900 mb-4 border-b pb-2">⚡ 1. Selecciona los equipos a respaldar</h3>
-      
-      <div class="space-y-4">
-        <!-- Refrigerador -->
-        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200">
-          <div>
-            <span class="font-bold text-gray-800">❄️ Refrigerador / Frigidaire</span>
-            <p class="text-xs text-gray-500">Consumo medio: ~150W</p>
-          </div>
-          <input type="checkbox" id="refri" class="w-6 h-6 text-blue-600 rounded focus:ring-blue-500 cursor-pointer" onchange="calcularEnergia()">
+    <!-- Header / Cabecera -->
+    <header class="w-full py-6 px-6 border-b border-emerald-900/40 flex justify-between items-center max-w-4xl mx-auto">
+        <div class="flex items-center space-x-3">
+            <div class="bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/30 text-emerald-400">
+                <i class="fa-solid fa-solar-panel text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-lg font-bold tracking-wide text-white">Solar Cuba</h1>
+                <p class="text-xs text-emerald-400 font-medium">Asesoría Técnica Especializada</p>
+            </div>
         </div>
-
-        <!-- Ventiladores -->
-        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200">
-          <div>
-            <span class="font-bold text-gray-800">🌀 Ventilador (1 a 2 unidades)</span>
-            <p class="text-xs text-gray-500">Consumo medio: ~60W c/u</p>
-          </div>
-          <input type="checkbox" id="vent" class="w-6 h-6 text-blue-600 rounded focus:ring-blue-500 cursor-pointer" onchange="calcularEnergia()">
+        <div class="text-xs bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-full text-slate-300">
+            <i class="fa-solid fa-shield-halved text-emerald-400 mr-1.5"></i> Pago Seguro QvaPay
         </div>
+    </header>
 
-        <!-- Luces LED -->
-        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200">
-          <div>
-            <span class="font-bold text-gray-800">💡 Luces LED de la casa</span>
-            <p class="text-xs text-gray-500">Consumo medio: ~30W total</p>
-          </div>
-          <input type="checkbox" id="luces" class="w-6 h-6 text-blue-600 rounded focus:ring-blue-500 cursor-pointer" onchange="calcularEnergia()">
+    <!-- Contenido Principal -->
+    <main class="flex-grow flex items-center justify-center px-4 py-10">
+        <div class="card-glass rounded-3xl p-8 max-w-md w-full shadow-2xl text-center relative overflow-hidden">
+            
+            <!-- Decorador superior -->
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500"></div>
+
+            <!-- Detalles del Servicio -->
+            <div class="mb-6">
+                <span class="inline-block bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1 rounded-full font-semibold mb-3 border border-emerald-500/20">
+                    ESTUDIO Y CONSULTORÍA
+                </span>
+                <h2 class="text-2xl font-bold text-white mb-2">Asesoría Técnica Fotovoltaica</h2>
+                <p class="text-sm text-slate-400">Análisis dimensionado de inversores, paneles y sistemas solares orientados a Cuba.</p>
+            </div>
+
+            <!-- Bloque de Precio -->
+            <div class="bg-slate-900/60 rounded-2xl p-5 mb-6 border border-slate-800 flex items-center justify-between">
+                <div class="text-left">
+                    <span class="text-xs text-slate-400 block">Total a pagar</span>
+                    <span class="text-xs text-emerald-400 font-mono">Usuario: pacpumremedioszjdp436</span>
+                </div>
+                <div class="text-right">
+                    <span class="text-3xl font-extrabold text-white">55.00</span>
+                    <span class="text-xs font-bold text-emerald-400 uppercase"> USD</span>
+                </div>
+            </div>
+
+            <!-- Contenedor del Código QR -->
+            <div class="mb-6 flex flex-col items-center">
+                <div class="bg-white p-4 rounded-2xl shadow-inner inline-block border-4 border-slate-800">
+                    <div id="qrcode" class="flex justify-center items-center"></div>
+                </div>
+                <span class="text-xs text-slate-400 mt-2 flex items-center">
+                    <i class="fa-solid fa-qrcode mr-1.5 text-emerald-400"></i> Escanea con la App de QvaPay para pagar
+                </span>
+            </div>
+
+            <!-- Botón de Pago Moderno -->
+            <a href="https://qvapay.com/pay?to=pacpumremedioszjdp436&amount=55" target="_blank" 
+               class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-emerald-900/30 flex items-center justify-center space-x-2 group">
+                <span>Pagar con QvaPay ($55 USD)</span>
+                <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+            </a>
+
+            <!-- Pie de tarjeta de seguridad -->
+            <div class="mt-6 pt-4 border-t border-slate-800/80 text-[11px] text-slate-400 flex justify-center items-center space-x-4">
+                <span><i class="fa-solid fa-bolt text-amber-400 mr-1"></i> Acreditación inmediata</span>
+                <span>•</span>
+                <span><i class="fa-solid fa-lock text-emerald-400 mr-1"></i> Enlace directo verificado</span>
+            </div>
+
         </div>
+    </main>
 
-        <!-- TV y Router -->
-        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200">
-          <div>
-            <span class="font-bold text-gray-800">📺 TV + Router WiFi</span>
-            <p class="text-xs text-gray-500">Consumo medio: ~80W</p>
-          </div>
-          <input type="checkbox" id="tv" class="w-6 h-6 text-blue-600 rounded focus:ring-blue-500 cursor-pointer" onchange="calcularEnergia()">
-        </div>
-      </div>
+    <!-- Footer -->
+    <footer class="py-6 text-center text-xs text-slate-500 border-t border-slate-900">
+        <p>&copy; 2026 Solar Cuba. Todos los derechos reservados.</p>
+    </footer>
 
-      <!-- RESULTADOS -->
-      <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
-        <h4 class="font-bold text-blue-900 mb-1 text-sm uppercase">Resultado Estimado:</h4>
-        <div class="flex justify-between items-center text-lg sm:text-xl font-extrabold text-blue-950">
-          <span>Potencia requerida:</span>
-          <span id="vatiosTotales" class="text-blue-600">0 W</span>
-        </div>
-        <p id="recomendacionText" class="text-xs sm:text-sm text-gray-600 mt-2">Selecciona al menos un equipo para ver la sugerencia de compra recomendada.</p>
-      </div>
-    </div>
-
-    <!-- GUÍA DE INSTALACIÓN SEGURA -->
-    <section class="mt-8 bg-white rounded-2xl shadow-xl p-5 sm:p-8 border border-gray-100">
-      <h3 class="text-xl font-bold text-gray-900 mb-3">🛡️ Guía Rápida para Instalación Segura en Cuba</h3>
-      <ul class="space-y-3 text-sm text-gray-600">
-        <li class="flex items-start gap-2">
-          <span class="text-red-500 font-bold">⚠️</span>
-          <span><b>Desconecta la breaker principal:</b> Nunca conectes un inversor o planta a la red de la casa sin bajar la breaker del metro para evitar retroalimentar la calle cuando regrese el fluido eléctrico.</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-green-500 font-bold">✔️</span>
-          <span><b>Calibre de cable AWG recomendados:</b> Para inversores de 12V/24V a baterías, usa cables gruesos (#6 AWG o #4 AWG) para evitar sobrecalentamientos y pérdida de energía.</span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- SECCIÓN DE PREGUNTAS FRECUENTES (FAQ PARA SEO) -->
-    <section class="mt-8 bg-white rounded-2xl shadow-xl p-5 sm:p-8 border border-gray-100">
-      <h3 class="text-xl font-bold text-gray-900 mb-4 border-b pb-2">❓ Preguntas Frecuentes sobre Energía Solar en Cuba</h3>
-      
-      <div class="space-y-4 text-sm text-gray-700">
-        <div>
-          <h4 class="font-bold text-blue-900">¿Cuántos vatios consume un refrigerador medio en Cuba?</h4>
-          <p class="text-gray-600 mt-1">Un refrigerador doméstico tradicional consume en promedio unos 150W de potencia de trabajo, aunque al arrancar el compresor puede demandar un pico superior. Por eso se recomienda un inversor o estación de al menos 300W a 500W dedicados solo a este equipo.</p>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-blue-900">¿Qué inversor o planta necesito para soportar apagones prolongados?</h4>
-          <p class="text-gray-600 mt-1">Depende estrictamente de lo que desees encender. Para cubrir elementos básicos (luces LED, ventiladores, router Wi-Fi y cargar teléfonos), una estación portátil de 300W a 600W es suficiente. Si deseas sumar el refrigerador, se recomienda un sistema de 1000W en adelante.</p>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-blue-900">¿Cómo calcular el consumo total de mi casa de forma sencilla?</h4>
-          <p class="text-gray-600 mt-1">Debes sumar la potencia en vatios (W) de cada electrodoméstico que planeas mantener encendido de forma simultánea durante un apagón. Nuestra calculadora superior hace este cálculo de forma automática para ahorrarte errores.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN DE ASESORÍA Y PAGOS (AUTO-SERVICIO) -->
-    <section id="contacto" class="mt-8 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl shadow-xl p-6 text-center text-blue-950">
-      <h3 class="text-xl font-extrabold mb-2">¿Necesitas un diagrama de instalación o análisis a la medida?</h3>
-      <p class="text-sm font-medium mb-4">Realiza el pago de la asesoría profesional a través de QvaPay. <b>Deja tu correo electrónico en los comentarios de la transferencia</b> para enviarte la respuesta detallada de forma privada.</p>
-      <a href="https://qvapay.com/pay/pacpumremedioszjdp436" target="_blank" class="inline-block bg-blue-900 hover:bg-blue-950 text-white font-bold px-6 py-3 rounded-xl shadow-md transition text-sm">
-        Solicitar Estudio por QvaPay ($)
-      </a>
-    </section>
-  </main>
-
-  <!-- LÓGICA DE LA CALCULADORA -->
-  <script>
-    function calcularEnergia() {
-      let vatios = 0;
-      if (document.getElementById('refri').checked) vatios += 150;
-      if (document.getElementById('vent').checked) vatios += 60;
-      if (document.getElementById('luces').checked) vatios += 30;
-      if (document.getElementById('tv').checked) vatios += 80;
-
-      document.getElementById('vatiosTotales').innerText = vatios + " W";
-
-      let rec = document.getElementById('recomendacionText');
-      if (vatios === 0) {
-        rec.innerText = "Selecciona al menos un equipo para ver la sugerencia de compra recomendada.";
-      } else if (vatios <= 150) {
-        rec.innerText = "Recomendación: Estación de energía portátil de 300W a 600W (Ejemplo: EcoFlow River 2 o Bluetti EB3A).";
-      } else if (vatios <= 350) {
-        rec.innerText = "Recomendación: Estación de 1000W o Inversor de onda pura de 1200W con batería LiFePO4 de 100Ah.";
-      } else {
-        rec.innerText = "Recomendación: Sistema de Inversor de 2000W o superior a 24V con arreglo de paneles de 400W mínimo.";
-      }
-    }
-  </script>
-
+    <!-- Script para generar el QR dinámicamente -->
+    <script>
+        // Enlace oficial de cobro directo al usuario configurado
+        const paymentUrl = "https://qvapay.com/pay?to=pacpumremedioszjdp436&amount=55";
+        
+        // Generar QR dentro del contenedor
+        new QRCode(document.getElementById("qrcode"), {
+            text: paymentUrl,
+            width: 160,
+            height: 160,
+            colorDark: "#0f172a",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
 </body>
 </html>
